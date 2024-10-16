@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Web", "DrexTeacherAndSubject.Web.csproj", "{B634D5D3-AFDC-45ED-9879-DC5D46515869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Models", "..\DrexTeacherAndSubject.Models\DrexTeacherAndSubject.Models.csproj", "{F3B37186-A5FB-40AB-B35E-EFE8C91EF2A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.MySql", "..\DrexTeacherAndSubject.MySql\DrexTeacherAndSubject.MySql.csproj", "{7AB47261-AC43-40EE-84EB-65E6D437D972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Contrast", "..\DrexTeacherAndSubject.Contrast\DrexTeacherAndSubject.Contrast.csproj", "{B4204DE3-95CA-471E-ADB2-21F5D67B1C67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.EntityFramework", "..\DrexTeacherAndSubject.EntityFramework\DrexTeacherAndSubject.EntityFramework.csproj", "{509F13D2-24EA-42F4-91F4-9BAA50D75791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Services", "..\DrexTeacherAndSubject.Services\DrexTeacherAndSubject.Services.csproj", "{5CFAC3D9-8DB8-4427-993A-3DF25B9181DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B634D5D3-AFDC-45ED-9879-DC5D46515869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B634D5D3-AFDC-45ED-9879-DC5D46515869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B634D5D3-AFDC-45ED-9879-DC5D46515869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B634D5D3-AFDC-45ED-9879-DC5D46515869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B37186-A5FB-40AB-B35E-EFE8C91EF2A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B37186-A5FB-40AB-B35E-EFE8C91EF2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B37186-A5FB-40AB-B35E-EFE8C91EF2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B37186-A5FB-40AB-B35E-EFE8C91EF2A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB47261-AC43-40EE-84EB-65E6D437D972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB47261-AC43-40EE-84EB-65E6D437D972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB47261-AC43-40EE-84EB-65E6D437D972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB47261-AC43-40EE-84EB-65E6D437D972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4204DE3-95CA-471E-ADB2-21F5D67B1C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4204DE3-95CA-471E-ADB2-21F5D67B1C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4204DE3-95CA-471E-ADB2-21F5D67B1C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4204DE3-95CA-471E-ADB2-21F5D67B1C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509F13D2-24EA-42F4-91F4-9BAA50D75791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509F13D2-24EA-42F4-91F4-9BAA50D75791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509F13D2-24EA-42F4-91F4-9BAA50D75791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509F13D2-24EA-42F4-91F4-9BAA50D75791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CFAC3D9-8DB8-4427-993A-3DF25B9181DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CFAC3D9-8DB8-4427-993A-3DF25B9181DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CFAC3D9-8DB8-4427-993A-3DF25B9181DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CFAC3D9-8DB8-4427-993A-3DF25B9181DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF0DBF4F-F3A6-4E22-943B-F0A0A7E0BA13}
+	EndGlobalSection
+EndGlobal
