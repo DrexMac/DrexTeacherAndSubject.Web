@@ -1,0 +1,34 @@
+﻿@page
+@model DrexTeacherAndSubject.Web.Pages.Teachers.CreateModel
+@using DrexTeacherAndSubject.Models
+
+<h1>Create Teacher</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.Name">Name</label>
+        <input asp-for="Input.Name" class="form-control" />
+        <span asp-validation-for="Input.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.Department">Department</label>
+        <input asp-for="Input.Department" class="form-control" />
+        <span asp-validation-for="Input.Department" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Input.SubjectIds">Subjects</label>
+        <select asp-for="Input.SubjectIds"
+                asp-items="@(new SelectList(ViewData["Subjects"] as IEnumerable<Subject>, "Id", "Title"))"
+                class="form-control" multiple>
+        </select>
+        <span asp-validation-for="Input.SubjectIds" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

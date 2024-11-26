@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Web", "DrexTeacherAndSubject.Web.csproj", "{B634D5D3-AFDC-45ED-9879-DC5D46515869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrexTeacherAndSubject.Web", "DrexTeacherAndSubject.Web.csproj", "{B634D5D3-AFDC-45ED-9879-DC5D46515869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Models", "..\DrexTeacherAndSubject.Models\DrexTeacherAndSubject.Models.csproj", "{F3B37186-A5FB-40AB-B35E-EFE8C91EF2A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrexTeacherAndSubject.Models", "..\DrexTeacherAndSubject.Models\DrexTeacherAndSubject.Models.csproj", "{F3B37186-A5FB-40AB-B35E-EFE8C91EF2A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.MySql", "..\DrexTeacherAndSubject.MySql\DrexTeacherAndSubject.MySql.csproj", "{7AB47261-AC43-40EE-84EB-65E6D437D972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrexTeacherAndSubject.MySql", "..\DrexTeacherAndSubject.MySql\DrexTeacherAndSubject.MySql.csproj", "{7AB47261-AC43-40EE-84EB-65E6D437D972}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Contrast", "..\DrexTeacherAndSubject.Contrast\DrexTeacherAndSubject.Contrast.csproj", "{B4204DE3-95CA-471E-ADB2-21F5D67B1C67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrexTeacherAndSubject.Contrast", "..\DrexTeacherAndSubject.Contrast\DrexTeacherAndSubject.Contrast.csproj", "{B4204DE3-95CA-471E-ADB2-21F5D67B1C67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.EntityFramework", "..\DrexTeacherAndSubject.EntityFramework\DrexTeacherAndSubject.EntityFramework.csproj", "{509F13D2-24EA-42F4-91F4-9BAA50D75791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrexTeacherAndSubject.EntityFramework", "..\DrexTeacherAndSubject.EntityFramework\DrexTeacherAndSubject.EntityFramework.csproj", "{509F13D2-24EA-42F4-91F4-9BAA50D75791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexTeacherAndSubject.Services", "..\DrexTeacherAndSubject.Services\DrexTeacherAndSubject.Services.csproj", "{5CFAC3D9-8DB8-4427-993A-3DF25B9181DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrexTeacherAndSubject.Services", "..\DrexTeacherAndSubject.Services\DrexTeacherAndSubject.Services.csproj", "{5CFAC3D9-8DB8-4427-993A-3DF25B9181DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

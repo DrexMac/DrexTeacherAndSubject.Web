@@ -20,9 +20,9 @@ namespace DrexTeacherAndSubject.Services
             return await _repository.All().ToListAsync();
         }
 
-        public async Task<Subject?> GetByIdAsync(int id)
+        public async Task<Subject?> GetByIdAsync(Guid id) 
         {
-            return await _repository.Find(s => s.SubjectId == id).FirstOrDefaultAsync();
+            return await _repository.Find(s => s.Id == id).FirstOrDefaultAsync(); 
         }
 
         public async Task AddAsync(Subject subject)
@@ -37,7 +37,7 @@ namespace DrexTeacherAndSubject.Services
             await _repository.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id) 
         {
             var subject = await GetByIdAsync(id);
             if (subject != null)

@@ -3,8 +3,6 @@ using DrexTeacherAndSubject.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DrexTeacherAndSubject.Services
@@ -15,45 +13,49 @@ namespace DrexTeacherAndSubject.Services
 
         public TeacherService(IRepository<Teacher> repository)
         {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository)); // Null check for repository
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
         public async Task<IEnumerable<Teacher>> GetAllAsync()
         {
-            return await _repository.All().ToListAsync(); // Ensure you have using Microsoft.EntityFrameworkCore
+            // Include related Subjects when fetching Teachers
+            return await _repository.All()
+                .Include(t => t.Subjects)
+                .ToListAsync();
         }
 
-        public async Task<Teacher?> GetByIdAsync(int id)
+        public async Task<Teacher?> GetByIdAsync(Guid id)
         {
-            return await _repository.Find(a => a.TeacherId == id).FirstOrDefaultAsync(); // Nullable return type
+            // Include Subjects for a specific Teacher
+            return await _repository.Find(t => t.Id == id)
+                .Include(t => t.Subjects)
+                .FirstOrDefaultAsync();
         }
 
-        public async Task AddAsync(Teacher teacher)
+        public async Task AddAsync(Teacher entity)
         {
-            if (teacher == null) throw new ArgumentNullException(nameof(teacher)); // Null check for teacher
-            await _repository.AddAsync(teacher);
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            await _repository.AddAsync(entity);
             await _repository.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Teacher teacher)
+        public async Task UpdateAsync(Teacher entity)
         {
-            if (teacher == null) throw new ArgumentNullException(nameof(teacher)); // Null check for teacher
-            _repository.Update(teacher);
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            _repository.Update(entity);
             await _repository.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
-            var teacher = await GetByIdAsync(id);
-            if (teacher != null) // Check if teacher exists before deletion
+            var entity = await GetByIdAsync(id);
+            if (entity == null)
             {
-                _repository.Delete(teacher);
-                await _repository.SaveChangesAsync();
+                return;  
             }
-            else
-            {
-                throw new KeyNotFoundException($"Teacher with ID {id} not found."); // Optional: handle not found case
-            }
+
+            _repository.Delete(entity);
+            await _repository.SaveChangesAsync();
         }
     }
 }

@@ -1,0 +1,18 @@
+﻿@page
+@model DrexTeacherAndSubject.Web.Pages.Teachers.Delete
+
+<h1>Delete Teacher</h1>
+
+@if (Model.Item != null)
+{
+    <p>Are you sure you want to delete the teacher <strong>@Model.Item.Name</strong>?</p>
+
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="~/teachers" class="btn btn-secondary">Cancel</a>
+    </form>
+}
+else
+{
+    <p>Teacher not found.</p>
+}

@@ -8,10 +8,10 @@ namespace DrexTeacherAndSubject.Models
 {
     public class Teacher
     {
-        public int TeacherId { get; set; }
+        public Guid Id { get; set; }
         public string? Name { get; set; }
         public string? Department { get; set; }
 
-        public ICollection<TeacherSubject>? TeacherSubjects { get; set; } = new List<TeacherSubject>();
+        public ICollection<Subject> Subjects { get; set; } = new List<Subject>();
     }
 }

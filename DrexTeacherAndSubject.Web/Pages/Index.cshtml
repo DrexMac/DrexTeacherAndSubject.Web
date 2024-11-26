@@ -1,21 +1,8 @@
 ﻿@page
-@model Index
+@model DrexTeacherAndSubject.Web.Pages.IndexModel
 @{
-    ViewData["Title"] = "Index";
 }
 
-<h1>Teachers</h1>
-@foreach (var teacher in Model.Teachers)
-{
-        <h3>@teacher.Name</h3>
-        <p>Department: @teacher.Department</p>
-        <hr />
-}
-
-<h1>Subjects</h1>
-@foreach (var subject in Model.Subjects)
-{
-        <h3>@subject.Title</h3>
-        <p>Credit Hours: @subject.CreditHours</p>
-        <hr />
-}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
