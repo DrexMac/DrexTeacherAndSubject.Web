@@ -74,8 +74,8 @@
                         }
                     </td>
                     <td>
-                        <!-- Corrected Edit link -->
-                        <a href="~/teachers/edit?id=@teacher.Id" type="button" class="btn btn-secondary">Edit</a>
+                        
+                        <a href="~/teachers/update?id=@teacher.Id" type="button" class="btn btn-secondary">Update</a>
                         <a href="#" type="button" class="btn btn-danger" onclick="confirmDelete('@teacher.Id', '@teacher.Name')">Delete</a>
                     </td>
                 </tr>

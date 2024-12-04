@@ -16,7 +16,6 @@ namespace DrexTeacherAndSubject.EntityFramework
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Define non-nullable Guid values for Teachers and Subjects
             Guid teacherId1 = Guid.NewGuid();
             Guid teacherId2 = Guid.NewGuid();
             Guid teacherId3 = Guid.NewGuid();
@@ -25,7 +24,6 @@ namespace DrexTeacherAndSubject.EntityFramework
             Guid subjectId2 = Guid.NewGuid();
             Guid subjectId3 = Guid.NewGuid();
 
-            // Create lists of Teachers
             List<Teacher> teachers = new List<Teacher>
             {
                 new Teacher
@@ -70,25 +68,22 @@ namespace DrexTeacherAndSubject.EntityFramework
                 }
             };
 
-            // Seed Teachers and Subjects
             modelBuilder.Entity<Teacher>().HasData(teachers);
             modelBuilder.Entity<Subject>().HasData(subjects);
 
-            // Configure Many-to-Many Relationship between Teachers and Subjects
             modelBuilder.Entity<Teacher>()
                 .HasMany(t => t.Subjects)
                 .WithMany(s => s.Teachers)
                 .UsingEntity<Dictionary<string, object>>(
-                    "TeacherSubject", // Join table name
+                    "TeacherSubject",
                     j => j.HasOne<Subject>().WithMany().HasForeignKey("SubjectId"),
                     j => j.HasOne<Teacher>().WithMany().HasForeignKey("TeacherId")
                 );
 
-            // Seed Many-to-Many Relationships
             modelBuilder.Entity("TeacherSubject").HasData(
-                new { TeacherId = teacherId1, SubjectId = subjectId1 }, // Fym Macaspac - Algebra
-                new { TeacherId = teacherId2, SubjectId = subjectId2 }, // Rolly Macaspac - Physics
-                new { TeacherId = teacherId3, SubjectId = subjectId3 }  // Josemaria Del Rosario - English
+                new { TeacherId = teacherId1, SubjectId = subjectId1 }, 
+                new { TeacherId = teacherId2, SubjectId = subjectId2 }, 
+                new { TeacherId = teacherId3, SubjectId = subjectId3 }  
             );
         }
     }
