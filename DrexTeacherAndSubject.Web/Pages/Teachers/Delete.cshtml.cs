@@ -44,7 +44,7 @@ namespace DrexTeacherAndSubject.Web.Pages.Teachers
             else
             {
                 await _teacherService.DeleteAsync(Item.Id);
-                return RedirectPermanent("~/teachers");  // Redirect to the teacher list after deletion
+                return RedirectPermanent("~/teachers");  
             }
         }
     }

@@ -1,0 +1,55 @@
+﻿@page
+@model DrexTeacherAndSubject.Web.Pages.Teachers.EditModel
+
+@{
+    ViewData["Title"] = "Edit Teacher";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Edit Teacher Information</h1>
+    <p class="lead text-center">Update the details of the teacher.</p>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Teacher.Name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Department" class="form-label">Department</label>
+            <input type="text" class="form-control" id="Department" name="Department" value="@Model.Teacher.Department" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Subjects" class="form-label">Subjects</label>
+            <ul class="list-unstyled">
+                @foreach (var subject in Model.Teacher.Subjects)
+                {
+                    <li>@subject.Title (Credits: @subject.CreditHours)</li>
+                }
+            </ul>
+            <p>Update subjects (optional):</p>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="addSubject" name="addSubject">
+                <label class="form-check-label" for="addSubject">Add new subject</label>
+            </div>
+            <div id="newSubject" style="display: none;">
+                <label for="NewSubjectTitle" class="form-label">Subject Title</label>
+                <input type="text" class="form-control" id="NewSubjectTitle" name="NewSubjectTitle">
+                <label for="NewSubjectCreditHours" class="form-label">Credit Hours</label>
+                <input type="number" class="form-control" id="NewSubjectCreditHours" name="NewSubjectCreditHours" min="1" max="6">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('addSubject').addEventListener('change', function () {
+            var newSubjectDiv = document.getElementById('newSubject');
+            newSubjectDiv.style.display = this.checked ? 'block' : 'none';
+        });
+    </script>
+}
