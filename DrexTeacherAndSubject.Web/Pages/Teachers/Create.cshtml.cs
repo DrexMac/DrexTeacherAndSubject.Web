@@ -27,7 +27,15 @@ namespace DrexTeacherAndSubject.Web.Pages.Teachers
         public async Task<IActionResult> OnGet()
         {
             var subjects = await _subjectService.GetAllAsync();
-            ViewData["Subjects"] = subjects;
+
+            
+            var subjectsWithTitles = subjects.Select(s => new Subject
+            {
+                Id = s.Id,
+                Title = string.IsNullOrEmpty(s.Title) ? "Unnamed Subject" : s.Title,
+            }).ToList();
+
+            ViewData["Subjects"] = subjectsWithTitles;
             return Page();
         }
 
@@ -50,9 +58,6 @@ namespace DrexTeacherAndSubject.Web.Pages.Teachers
 
             await _teacherService.AddAsync(teacher);
             return RedirectToPage("/Teachers/Index");
-
-
-
         }
     }
 

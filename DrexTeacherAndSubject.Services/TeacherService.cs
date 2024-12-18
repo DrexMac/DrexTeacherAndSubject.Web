@@ -3,6 +3,7 @@ using DrexTeacherAndSubject.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DrexTeacherAndSubject.Services
@@ -18,44 +19,78 @@ namespace DrexTeacherAndSubject.Services
 
         public async Task<IEnumerable<Teacher>> GetAllAsync()
         {
-            // Include related Subjects when fetching Teachers
             return await _repository.All()
+                .Where(t => t.IsDeleted != true)
                 .Include(t => t.Subjects)
                 .ToListAsync();
         }
 
         public async Task<Teacher?> GetByIdAsync(Guid id)
         {
-            // Include Subjects for a specific Teacher
-            return await _repository.Find(t => t.Id == id)
+            return await _repository.Find(t => t.Id == id && t.IsDeleted != true)
                 .Include(t => t.Subjects)
                 .FirstOrDefaultAsync();
         }
 
         public async Task AddAsync(Teacher entity)
         {
-            if (entity == null) throw new ArgumentNullException(nameof(entity));
-            await _repository.AddAsync(entity);
-            await _repository.SaveChangesAsync();
+            if (entity != null)
+            {
+                entity.IsDeleted = false;
+                await _repository.AddAsync(entity);
+                await _repository.SaveChangesAsync();
+            }
         }
 
         public async Task UpdateAsync(Teacher entity)
         {
-            if (entity == null) throw new ArgumentNullException(nameof(entity));
-            _repository.Update(entity);
-            await _repository.SaveChangesAsync();
+            if (entity != null)
+            {
+                _repository.Update(entity);
+                await _repository.SaveChangesAsync();
+            }
         }
 
         public async Task DeleteAsync(Guid id)
         {
             var entity = await GetByIdAsync(id);
-            if (entity == null)
+            if (entity != null)
             {
-                return;  
+                _repository.Delete(entity);
+                await _repository.SaveChangesAsync();
             }
+        }
 
-            _repository.Delete(entity);
-            await _repository.SaveChangesAsync();
+        public async Task SoftDeleteAsync(Guid? id)
+        {
+            if (id.HasValue)
+            {
+                var entity = await _repository.Find(t => t.Id == id.Value && t.IsDeleted != true)
+                    .FirstOrDefaultAsync();
+
+                if (entity != null)
+                {
+                    entity.IsDeleted = true;
+                    _repository.Update(entity);
+                    await _repository.SaveChangesAsync();
+                }
+            }
+        }
+
+        public async Task UndeleteAsync(Guid? id)
+        {
+            if (id.HasValue)
+            {
+                var entity = await _repository.Find(t => t.Id == id.Value && t.IsDeleted == true)
+                    .FirstOrDefaultAsync();
+
+                if (entity != null)
+                {
+                    entity.IsDeleted = false;
+                    _repository.Update(entity);
+                    await _repository.SaveChangesAsync();
+                }
+            }
         }
     }
 }

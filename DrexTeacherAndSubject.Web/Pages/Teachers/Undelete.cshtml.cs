@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace DrexTeacherAndSubject.Web.Pages.Teachers
 {
-    public class DeleteModel : PageModel
+    public class UndeleteModel : PageModel
     {
         [BindProperty]
         public Teacher? Item { get; set; }
 
         private readonly ITeacherService _teacherService;
-        private readonly ILogger<DeleteModel> _logger;
+        private readonly ILogger<UndeleteModel> _logger;
 
-        public DeleteModel(ILogger<DeleteModel> logger, ITeacherService teacherService)
+        public UndeleteModel(ILogger<UndeleteModel> logger, ITeacherService teacherService)
         {
             _logger = logger;
             _teacherService = teacherService;
@@ -40,9 +40,8 @@ namespace DrexTeacherAndSubject.Web.Pages.Teachers
                 return NotFound();
             }
 
-            
-            await _teacherService.DeleteAsync(Item.Id);
-            return RedirectToPage("/Teachers/Index"); 
+            await _teacherService.UndeleteAsync(Item.Id);
+            return RedirectToPage("/Teachers/Index");
         }
     }
 }

@@ -9,6 +9,7 @@ namespace DrexTeacherAndSubject.Contracts
 {
     public interface ITeacherService : IService<Teacher>
     {
+        
     }
 
 }

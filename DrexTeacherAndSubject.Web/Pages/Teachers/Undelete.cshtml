@@ -1,0 +1,31 @@
+﻿@page
+@model DrexTeacherAndSubject.Web.Pages.Teachers.UndeleteModel
+
+@{
+    ViewData["Title"] = "Confirm Undelete Teacher";
+}
+
+<h1>Confirm Undelete</h1>
+
+@if (Model.Item != null)
+{
+    <div class="alert alert-info">
+        <h4>Are you sure you want to restore the following teacher?</h4>
+        <p><strong>@Model.Item.Name</strong></p>
+        <p>Department: @Model.Item.Department</p>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="Item.Id" />
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Confirm Undelete</button>
+            <a href="/Teachers/Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+}
+else
+{
+    <div class="alert alert-warning">
+        <p>No teacher found or the teacher is not deleted.</p>
+    </div>
+}

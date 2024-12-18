@@ -2,23 +2,20 @@ using DrexTeacherAndSubject.Contracts;
 using DrexTeacherAndSubject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
 namespace DrexTeacherAndSubject.Web.Pages.Teachers
 {
-    public class DeleteModel : PageModel
+    public class SoftDeleteModel : PageModel
     {
         [BindProperty]
-        public Teacher? Item { get; set; }
+        public Teacher Item { get; set; }
 
         private readonly ITeacherService _teacherService;
-        private readonly ILogger<DeleteModel> _logger;
 
-        public DeleteModel(ILogger<DeleteModel> logger, ITeacherService teacherService)
+        public SoftDeleteModel(ITeacherService teacherService)
         {
-            _logger = logger;
             _teacherService = teacherService;
         }
 
@@ -40,9 +37,8 @@ namespace DrexTeacherAndSubject.Web.Pages.Teachers
                 return NotFound();
             }
 
-            
-            await _teacherService.DeleteAsync(Item.Id);
-            return RedirectToPage("/Teachers/Index"); 
+            await _teacherService.SoftDeleteAsync(Item.Id); // Mark as deleted
+            return RedirectToPage("/Teachers/Index"); // Redirect to the teacher list after soft deletion
         }
     }
 }
