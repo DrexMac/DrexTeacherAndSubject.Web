@@ -1,6 +1,5 @@
 ﻿using DrexTeacherAndSubject.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace DrexTeacherAndSubject.EntityFramework
 {
@@ -30,19 +29,22 @@ namespace DrexTeacherAndSubject.EntityFramework
                 {
                     Id = teacherId1,
                     Name = "Fym Macaspac",
-                    Department = "Computer Studies Department"
+                    Department = "Computer Studies Department",
+                    IsDeleted = false
                 },
                 new Teacher
                 {
                     Id = teacherId2,
                     Name = "Rolly Macaspac",
-                    Department = "BSIS Department"
+                    Department = "BSIS Department",
+                    IsDeleted = false
                 },
                 new Teacher
                 {
                     Id = teacherId3,
                     Name = "Josemaria Del Rosario",
-                    Department = "Astro Department"
+                    Department = "Astro Department",
+                    IsDeleted = false
                 }
             };
 
@@ -52,19 +54,22 @@ namespace DrexTeacherAndSubject.EntityFramework
                 {
                     Id = subjectId1,
                     Title = "Algebra",
-                    CreditHours = 3
+                    CreditHours = 3,
+                    IsDeleted = false
                 },
                 new Subject
                 {
                     Id = subjectId2,
                     Title = "Physics",
-                    CreditHours = 4
+                    CreditHours = 4,
+                    IsDeleted = false
                 },
                 new Subject
                 {
                     Id = subjectId3,
                     Title = "English",
-                    CreditHours = 3
+                    CreditHours = 3,
+                    IsDeleted = false
                 }
             };
 
@@ -81,11 +86,12 @@ namespace DrexTeacherAndSubject.EntityFramework
                 );
 
             modelBuilder.Entity("TeacherSubject").HasData(
-                new { TeacherId = teacherId1, SubjectId = subjectId1 }, 
-                new { TeacherId = teacherId2, SubjectId = subjectId2 }, 
-                new { TeacherId = teacherId3, SubjectId = subjectId3 }  
+                new { TeacherId = teacherId1, SubjectId = subjectId1 },
+                new { TeacherId = teacherId2, SubjectId = subjectId2 },
+                new { TeacherId = teacherId3, SubjectId = subjectId3 }
             );
         }
+
     }
 
 }
